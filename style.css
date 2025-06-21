@@ -1,0 +1,539 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #141414;
+    color: white;
+}
+
+/* Navbar Styling */
+.navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 100%);
+    z-index: 100;
+    transition: background-color 0.3s;
+}
+
+.navbar{
+    background: #141414;
+}
+
+.logo{
+    height: 25px;
+    cursor: pointer;
+}
+
+.navbar-nav{
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link{
+    color: #e5e5e5;
+    text-decoration: none;
+    font-size: 14px;
+    transform: color 0.3s;
+}
+
+.nav-link:hover{
+    color: #b3b3b3;
+}
+
+.navbar-right{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar-right i{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.profile-icon{
+    height: 32px;
+    width: 32px; 
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Hero Section Styling */
+.hero {
+    height: 80vh;
+    background: linear-gradient(
+     to bottom,
+     rgba(0,0,0,0.4) 0%,
+     rgba(0,0,0,0.8) 100% ),
+     url("stranger-things.jpg") center/cover ;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 0 60px;
+     margin-bottom: 20px;
+}
+
+.hero-content{
+    max-width: 600px;
+}
+
+.hero-title{
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.hero-description{
+    font-size: 18px;
+    margin-bottom: 24px; 
+    color: #e5e5e5;
+}
+
+.hero-button{
+    display: flex;
+    gap: 16px;
+}
+
+.btn{
+    padding: 10px 10px;
+    background-color: white;
+    color: black;
+    border-radius: 7px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.btn-play{
+    background-color: white;
+    color: black;
+}
+
+.btn-play:hover{
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.btn-more-info{
+    background-color: white;
+    color: black;
+}
+
+.btn-more-info:hover{
+    background-color: rgba(109, 109, 110, 0.4);
+}
+
+/* Movie Section */
+.container{
+    max-width: 100%;
+    padding: 0 4%;
+}
+
+/* Section Style */
+.content-section{
+    margin-bottom: 50px;
+}
+
+.section-title{
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+/* Content Row */
+.content-row{
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+}
+
+.content-row::-webkit-scrollbar{
+    height: 8px;
+}  
+
+.content-row::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+.content-row::-webkit-scrollbar-thumb{
+    background: #333;
+    border-radius: 5px;
+}
+
+/* Content Card */
+.content-card{
+    position: relative;
+    min-width: 250px;
+    height: 140px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.content-card:hover{
+    transform: scale(1.1);
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+.content-card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: brightness 0.3s ease-in;
+}
+
+.content-card:hover img{
+    filter: brightness(0.8);
+}
+
+/* Netflix Badge */
+.netflix-batch{
+    position: relative;
+    top: 8px;
+    left: 8px;
+    background-color: #e50914;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 2;
+}
+
+/* Card Overlay */
+.card-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        180deg, 
+        rgba(0,0,0,0.1) 0%,
+        rgba(0,0,0,0.3) 50%,
+        rgba(0,0,0,0.9) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    color: white;
+}
+
+.content-card:hover .card-overlay{
+    opacity: 1;
+}
+
+.overlay-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.overlay-bottom{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.overlay-title{
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.overlay-control{
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.control-btn{
+    width: 35px;
+    height: 35px;
+    border-radius: 5px solid white;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 14px;
+}
+
+.control-btn:hover{
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.1);
+}
+
+.play-btn .check-btn .thumbs-up-btn .more-btn{
+    background: white;
+    color: black;
+}
+
+.overlay-info{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.info-badge{
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* Button Icons */
+.play-btn::before{
+    content: "▶";
+}
+
+.check-btn::before{
+    content: "✓";
+}
+
+.thumbs-up-btn::before{
+    content: "👍";
+}
+
+.more-btn::before{
+    content: "▼";
+}
+
+.content-card::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        transparent 50%,
+        rgba(0,0,0,0.8) 100%
+    );
+    z-index: 1;
+}
+
+/* Responsiveness */
+@media (max-width:120px){
+    .container{
+        padding: 0 3%;
+    }
+
+    .container-card{
+        min-width: 220px;
+        height: 125px;
+    }
+
+    .section-title{
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width:760px){
+    .container{
+        padding: 0 2%;
+    }
+
+    .content-card{
+        min-width: 180px;
+        height: 100px;
+    }
+}
+
+
+/* Footer Styles */
+.footer {
+  background-color: #000;
+  color: #808080;
+  padding: 50px 60px 20px;
+  margin-top: 50px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  margin-bottom: 30px;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.social-link {
+  color: #808080;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.social-link:hover {
+  color: #fff;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column ul li {
+  margin-bottom: 15px;
+}
+
+.footer-column ul li a {
+  color: #808080;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+}
+
+.service-code {
+  background: transparent;
+  color: #808080;
+  border: 1px solid #808080;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.3s;
+}
+
+.service-code:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+.copyright {
+  font-size: 12px;
+  color: #808080;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 20px 20px;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
